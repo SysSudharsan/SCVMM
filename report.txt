@@ -1,0 +1,771 @@
+----------------------------------------------------
+------------------- Error Report -------------------
+----------------------------------------------------
+Error report created 3/16/2017 1:48:44 AM
+CLR is not terminating
+
+----------------------------------------------------
+--------------- Bucketing Parameters ---------------
+----------------------------------------------------
+EventType=VMM20
+P1(appName)=vmmservice.exe
+P2(appVersion)=3.2.8224.0
+P3(assemblyName)=Utils.dll
+P4(assemblyVer)=3.2.8145.0
+P5(methodName)=Microsoft.VirtualManager.DB.SqlRetryCommand.InternalExecuteReader
+P6(exceptionType)=System.AggregateException
+P7(callstackHash)=4f23
+
+SCVMM Version=3.2.8224.0
+SCVMM flavor=C-buddy-RTL-AMD64
+Default Assembly Version=3.2.8145.0
+Executable Name=vmmservice.exe
+Executable Version=3.2.8145.0
+Base Exception Target Site=8776563832952
+Base Exception Assembly name=Utils.dll
+Base Exception Method Name=Microsoft.VirtualManager.DB.SqlRetryCommand.InternalExecuteReader
+Exception Message=One or more errors occurred.
+EIP=0x000007fbde7bb418
+Build bit-size=64
+
+
+----------------------------------------------------
+------------ exceptionObject.ToString() ------------
+----------------------------------------------------
+System.AggregateException: One or more errors occurred. ---> Microsoft.VirtualManager.DB.CarmineSqlException: The SQL Server service account does not have permission to access Active Directory Domain Services (AD DS).
+Ensure that the SQL Server service is running under a domain account or a computer account that has permission to access AD DS. For more information, see "Some applications and APIs require access to authorization information on account objects" in the Microsoft Knowledge Base at http://go.microsoft.com/fwlink/?LinkId=121054. ---> System.Data.SqlClient.SqlException: Could not obtain information about Windows NT group/user 'SYSGAIN\adityac', error code 0x534.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.InternalExecuteReader(TimeSpan ExpectedDuration)
+   --- End of inner exception stack trace ---
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.InternalExecuteReader(TimeSpan ExpectedDuration)
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.ExecuteReader(Int32 expectedRows, Int32 expectedColumns)
+   at Microsoft.VirtualManager.Engine.IDListDBHelper.ParseObjectIDListFromSqlCmd(SqlRetryCommand cmd)
+   at Microsoft.VirtualManager.Engine.ImageLibrary.ServiceTemplate.GetAllIds(ConnectionProperties properties)
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.LoadRefreshers()
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.TimeStartupMethod(String description, TimedStartupMethod methodToTime)
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.WaitForStartupTasks()
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.TimeStartupMethod(String description, TimedStartupMethod methodToTime)
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.ExecuteRealEngineStartup()
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.TryStart(Object stateInfo)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.TimerQueueTimer.CallCallback()
+   at System.Threading.TimerQueueTimer.Fire()
+   at System.Threading.TimerQueue.FireNextTimers()
+---> (Inner Exception #0) Microsoft.VirtualManager.DB.CarmineSqlException: The SQL Server service account does not have permission to access Active Directory Domain Services (AD DS).
+Ensure that the SQL Server service is running under a domain account or a computer account that has permission to access AD DS. For more information, see "Some applications and APIs require access to authorization information on account objects" in the Microsoft Knowledge Base at http://go.microsoft.com/fwlink/?LinkId=121054. ---> System.Data.SqlClient.SqlException: Could not obtain information about Windows NT group/user 'SYSGAIN\adityac', error code 0x534.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.InternalExecuteReader(TimeSpan ExpectedDuration)
+   --- End of inner exception stack trace ---
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.InternalExecuteReader(TimeSpan ExpectedDuration)
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.ExecuteReader(Int32 expectedRows, Int32 expectedColumns)
+   at Microsoft.VirtualManager.Engine.IDListDBHelper.ParseObjectIDListFromSqlCmd(SqlRetryCommand cmd)
+   at Microsoft.VirtualManager.Engine.ImageLibrary.ServiceTemplate.GetAllIds(ConnectionProperties properties)
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.LoadRefreshers()
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.TimeStartupMethod(String description, TimedStartupMethod methodToTime)
+   at System.Threading.Tasks.Task.Execute()
+*** Carmine error was: SQLInsufficientPermissions (2607); SQLServer
+[s#85] SqlRetryCommand.InternalExecuteReader()
+Full call stack from when the exception was thrown:   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at Microsoft.VirtualManager.DB.CarmineSqlException..ctor(SqlException sqlException)
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.InternalExecuteReader(TimeSpan ExpectedDuration)
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.ExecuteReader(Int32 expectedRows, Int32 expectedColumns)
+   at Microsoft.VirtualManager.Engine.IDListDBHelper.ParseObjectIDListFromSqlCmd(SqlRetryCommand cmd)
+   at Microsoft.VirtualManager.Engine.ImageLibrary.ServiceTemplate.GetAllIds(ConnectionProperties properties)
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.LoadRefreshers()
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.TimeStartupMethod(String description, TimedStartupMethod methodToTime)
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+--- SqlException details -----------------
+System.Data.SqlClient.SqlException (0x80131904): Could not obtain information about Windows NT group/user 'SYSGAIN\adityac', error code 0x534.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.InternalExecuteReader(TimeSpan ExpectedDuration)
+ClientConnectionId:bb57ffe1-c67a-4681-8132-c3fc696ab4a4
+ Error = 15404
+Index #0
+Source: .Net SqlClient Data Provider
+Number: 15404
+State: 11
+Class: 16
+Server: BELSYSGSCVMM01
+Message: Could not obtain information about Windows NT group/user 'SYSGAIN\adityac', error code 0x534.
+Procedure: prc_WLC_GetAllServiceTemplateIDs
+Line: 0
+--- Caller StackTrace -----------------
+FileName:; Method:InternalExecuteReader(); lineNo:0; ilOffset:184.
+FileName:; Method:ExecuteReader(); lineNo:0; ilOffset:0.
+FileName:; Method:ParseObjectIDListFromSqlCmd(); lineNo:0; ilOffset:5.
+FileName:; Method:GetAllIds(); lineNo:0; ilOffset:8.
+FileName:; Method:LoadRefreshers(); lineNo:0; ilOffset:418.
+FileName:; Method:TimeStartupMethod(); lineNo:0; ilOffset:22.
+FileName:; Method:Execute(); lineNo:0; ilOffset:15.
+FileName:; Method:RunInternal(); lineNo:0; ilOffset:112.
+FileName:; Method:Run(); lineNo:0; ilOffset:4.
+FileName:; Method:ExecuteWithThreadLocal(); lineNo:0; ilOffset:196.
+FileName:; Method:ExecuteEntry(); lineNo:0; ilOffset:150.
+FileName:; Method:Dispatch(); lineNo:0; ilOffset:162.
+<---
+
+
+-------- exception.InnerException.ToString() -------
+Microsoft.VirtualManager.DB.CarmineSqlException: The SQL Server service account does not have permission to access Active Directory Domain Services (AD DS).
+Ensure that the SQL Server service is running under a domain account or a computer account that has permission to access AD DS. For more information, see "Some applications and APIs require access to authorization information on account objects" in the Microsoft Knowledge Base at http://go.microsoft.com/fwlink/?LinkId=121054. ---> System.Data.SqlClient.SqlException: Could not obtain information about Windows NT group/user 'SYSGAIN\adityac', error code 0x534.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.InternalExecuteReader(TimeSpan ExpectedDuration)
+   --- End of inner exception stack trace ---
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.InternalExecuteReader(TimeSpan ExpectedDuration)
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.ExecuteReader(Int32 expectedRows, Int32 expectedColumns)
+   at Microsoft.VirtualManager.Engine.IDListDBHelper.ParseObjectIDListFromSqlCmd(SqlRetryCommand cmd)
+   at Microsoft.VirtualManager.Engine.ImageLibrary.ServiceTemplate.GetAllIds(ConnectionProperties properties)
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.LoadRefreshers()
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.TimeStartupMethod(String description, TimedStartupMethod methodToTime)
+   at System.Threading.Tasks.Task.Execute()
+*** Carmine error was: SQLInsufficientPermissions (2607); SQLServer
+[s#85] SqlRetryCommand.InternalExecuteReader()
+Full call stack from when the exception was thrown:   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at Microsoft.VirtualManager.DB.CarmineSqlException..ctor(SqlException sqlException)
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.InternalExecuteReader(TimeSpan ExpectedDuration)
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.ExecuteReader(Int32 expectedRows, Int32 expectedColumns)
+   at Microsoft.VirtualManager.Engine.IDListDBHelper.ParseObjectIDListFromSqlCmd(SqlRetryCommand cmd)
+   at Microsoft.VirtualManager.Engine.ImageLibrary.ServiceTemplate.GetAllIds(ConnectionProperties properties)
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.LoadRefreshers()
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.TimeStartupMethod(String description, TimedStartupMethod methodToTime)
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+--- SqlException details -----------------
+System.Data.SqlClient.SqlException (0x80131904): Could not obtain information about Windows NT group/user 'SYSGAIN\adityac', error code 0x534.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.InternalExecuteReader(TimeSpan ExpectedDuration)
+ClientConnectionId:bb57ffe1-c67a-4681-8132-c3fc696ab4a4
+ Error = 15404
+Index #0
+Source: .Net SqlClient Data Provider
+Number: 15404
+State: 11
+Class: 16
+Server: BELSYSGSCVMM01
+Message: Could not obtain information about Windows NT group/user 'SYSGAIN\adityac', error code 0x534.
+Procedure: prc_WLC_GetAllServiceTemplateIDs
+Line: 0
+--- Caller StackTrace -----------------
+FileName:; Method:InternalExecuteReader(); lineNo:0; ilOffset:184.
+FileName:; Method:ExecuteReader(); lineNo:0; ilOffset:0.
+FileName:; Method:ParseObjectIDListFromSqlCmd(); lineNo:0; ilOffset:5.
+FileName:; Method:GetAllIds(); lineNo:0; ilOffset:8.
+FileName:; Method:LoadRefreshers(); lineNo:0; ilOffset:418.
+FileName:; Method:TimeStartupMethod(); lineNo:0; ilOffset:22.
+FileName:; Method:Execute(); lineNo:0; ilOffset:15.
+FileName:; Method:RunInternal(); lineNo:0; ilOffset:112.
+FileName:; Method:Run(); lineNo:0; ilOffset:4.
+FileName:; Method:ExecuteWithThreadLocal(); lineNo:0; ilOffset:196.
+FileName:; Method:ExecuteEntry(); lineNo:0; ilOffset:150.
+FileName:; Method:Dispatch(); lineNo:0; ilOffset:162.
+
+
+-------- exception.InnerException.ToString() -------
+System.Data.SqlClient.SqlException (0x80131904): Could not obtain information about Windows NT group/user 'SYSGAIN\adityac', error code 0x534.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.VirtualManager.DB.SqlRetryCommand.InternalExecuteReader(TimeSpan ExpectedDuration)
+ClientConnectionId:bb57ffe1-c67a-4681-8132-c3fc696ab4a4
+
+
+----------------------------------------------------
+--------------- exception.StackTrace ---------------
+----------------------------------------------------
+at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.WaitForStartupTasks()
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.TimeStartupMethod(String description, TimedStartupMethod methodToTime)
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.ExecuteRealEngineStartup()
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.TryStart(Object stateInfo)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.TimerQueueTimer.CallCallback()
+   at System.Threading.TimerQueueTimer.Fire()
+   at System.Threading.TimerQueue.FireNextTimers()
+
+
+----------------------------------------------------
+------------- StackTrace from handler --------------
+----------------------------------------------------
+This is the call stack from where the exception was caught, not where it was thrown.
+at Microsoft.VirtualManager.Utils.Diagnostics.WatsonReport.WriteReportTextFile(TextWriter reportFile)
+   at Microsoft.VirtualManager.Utils.Diagnostics.WatsonReport.Send()
+   at Microsoft.VirtualManager.Utils.Diagnostics.WatsonExceptionReport.Send()
+   at Microsoft.VirtualManager.Utils.Diagnostics.WatsonCenter.ReportException(Exception e, WERReportOptions options, String& localReportPath)
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.ReportUnhandledException(Exception unhandledException)
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.CurrentDomain_UnhandledException(Object sender, UnhandledExceptionEventArgs e)
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.WaitForStartupTasks()
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.TimeStartupMethod(String description, TimedStartupMethod methodToTime)
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.ExecuteRealEngineStartup()
+   at Microsoft.VirtualManager.Engine.VirtualManagerService.TryStart(Object stateInfo)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.TimerQueueTimer.CallCallback()
+   at System.Threading.TimerQueueTimer.Fire()
+   at System.Threading.TimerQueue.FireNextTimers()
+
+
+----------------------------------------------------
+-------------------- Assemblies --------------------
+----------------------------------------------------
+mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    Location=C:\Windows\Microsoft.NET\Framework64\v4.0.30319\mscorlib.dll
+    Module=C:\Windows\Microsoft.NET\Framework64\v4.0.30319\mscorlib.dll
+    Version=4.0.30319.18449
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+VMMService, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\Bin\vmmservice.exe
+    Module=C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\Bin\vmmservice.exe
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+System.ServiceProcess, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceProcess\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.ServiceProcess.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceProcess\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.ServiceProcess.dll
+    Version=4.0.30319.17929
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll
+    Version=4.0.30319.34239
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+TraceWrapper, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\TraceWrapper.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\TraceWrapper.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Utils, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Utils.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Utils.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+NativeMethods, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\NativeMethods.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\NativeMethods.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.Common, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Common.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Common.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.IndigoAccessLayer, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.IndigoAccessLayer.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.IndigoAccessLayer.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll
+    Version=4.0.30319.17929
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+Skuhelper, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Skuhelper.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Skuhelper.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Errors, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Errors.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Errors.dll
+    Version=3.2.8169.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Remoting, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Remoting.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Remoting.dll
+    Version=3.2.8169.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll
+    Version=4.0.30319.34230
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+Engine.DRA.Core, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.DRA.Core.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.DRA.Core.dll
+    Version=3.2.9467.0
+    BuildType=debug
+    Product=System Center Virtual Machine Manager Technical Preview 2
+
+System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_64\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_64\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll
+    Version=4.0.30319.17929
+    Product=Microsoft® .NET Framework
+
+System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll
+    Version=4.0.30319.18058
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+System.DirectoryServices.AccountManagement, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.DirectoryServices.AccountManagement\v4.0_4.0.0.0__b77a5c561934e089\System.DirectoryServices.AccountManagement.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.DirectoryServices.AccountManagement\v4.0_4.0.0.0__b77a5c561934e089\System.DirectoryServices.AccountManagement.dll
+    Version=4.0.30319.17929
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel\v4.0_4.0.0.0__b77a5c561934e089\System.ServiceModel.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel\v4.0_4.0.0.0__b77a5c561934e089\System.ServiceModel.dll
+    Version=4.0.30319.34230
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+Engine.Adhc.Operations, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Adhc.Operations.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Adhc.Operations.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.TaskRepository, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.TaskRepository.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.TaskRepository.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+ImgLibEngine, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\ImgLibEngine.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\ImgLibEngine.dll
+    Version=3.2.8224.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+VmmHelperHost, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\VmmHelperHost.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\VmmHelperHost.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+VirtualizationInterfaces, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\VirtualizationInterfaces.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\VirtualizationInterfaces.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+NetworkServiceInterfaces, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\NetworkServiceInterfaces.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\NetworkServiceInterfaces.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+ClusterUtil, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\ClusterUtil.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\ClusterUtil.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+VMWareImplementation, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\VMWareImplementation.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\VMWareImplementation.dll
+    Version=3.2.8169.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.AuthorizationManager, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.AuthorizationManager.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.AuthorizationManager.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.AuthorizationManagerTasks, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.AuthorizationManagerTasks.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.AuthorizationManagerTasks.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.Backup, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Backup.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Backup.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.BitBos, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.BitBos.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.BitBos.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Management.Automation\v4.0_3.0.0.0__31bf3856ad364e35\System.Management.Automation.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Management.Automation\v4.0_3.0.0.0__31bf3856ad364e35\System.Management.Automation.dll
+    Version=6.2.9200.17065
+    BuildType=retail
+    Product=Microsoft (R) Windows (R) Operating System
+
+WsManWrappers, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\WsManWrappers.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\WsManWrappers.dll
+    Version=3.2.8224.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+SqmWrapper, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\SqmWrapper.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\SqmWrapper.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.Deployment, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Deployment.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Deployment.dll
+    Version=3.2.8169.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.Placement.ResourceModel, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Placement.ResourceModel.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Placement.ResourceModel.dll
+    Version=3.2.8224.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.ImgLibOperation, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.ImgLibOperation.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.ImgLibOperation.dll
+    Version=3.2.8169.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll
+    Version=4.0.30319.34230
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+Engine.CustomProperties, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.CustomProperties.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.CustomProperties.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.VmOperations, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.VmOperations.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.VmOperations.dll
+    Version=3.2.8169.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.MomDal, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.MomDal.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.MomDal.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+System.Web.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Services\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Services\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll
+    Version=4.0.30319.17929
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+Engine.PxeServer, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.PxeServer.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.PxeServer.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.Placement, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Placement.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Placement.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.P2VCommon, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.P2VCommon.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.P2VCommon.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+PatchExtractor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\PatchExtractor.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\PatchExtractor.dll
+
+Engine.ConfigurationProviders, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.ConfigurationProviders.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.ConfigurationProviders.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+GatewayInterfaces, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\GatewayInterfaces.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\GatewayInterfaces.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.Management.Infrastructure\v4.0_1.0.0.0__31bf3856ad364e35\Microsoft.Management.Infrastructure.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.Management.Infrastructure\v4.0_1.0.0.0__31bf3856ad364e35\Microsoft.Management.Infrastructure.dll
+    Version=6.2.9200.16384
+    BuildType=debug
+    Product=Microsoft (R) Windows (R) Operating System
+
+Microsoft.CapacityManager.Modeling.Store.ModelLibrary, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Microsoft.CapacityManager.Modeling.Store.ModelLibrary.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Microsoft.CapacityManager.Modeling.Store.ModelLibrary.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.CustomPropertyTasks, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.CustomPropertyTasks.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.CustomPropertyTasks.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.UMOperation, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.UMOperation.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.UMOperation.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.Scheduler, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Scheduler.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Scheduler.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.Tasks, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Tasks.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.Tasks.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.ServiceOperations, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.ServiceOperations.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.ServiceOperations.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+GoalState, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\GoalState.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\GoalState.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+Engine.CloudService, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.CloudService.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\Engine.CloudService.dll
+    Version=3.2.8169.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+FabricAdapterContract, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\FabricAdapterContract.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\FabricAdapterContract.dll
+    Version=5.1.2150.0
+    BuildType=debug
+    Product=Windows Azure Hyper-V Recovery Manager.
+
+SrsDataContract, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\SrsDataContract.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\SrsDataContract.dll
+    Version=5.1.2150.0
+    BuildType=retail
+    Product=Windows Azure Hyper-V Recovery Manager.
+
+WSManAutomation, Version=3.2.8224.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\WSManAutomation.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\WSManAutomation.dll
+
+wmiWrappers, Version=1.0.523.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\WMIWrappers.dll
+    Module=c:\program files\microsoft system center 2012 r2\virtual machine manager\bin\WMIWrappers.dll
+    Version=3.2.8145.0
+    BuildType=retail
+    Product=System Center Virtual Machine Manager 2012 R2
+
+System.Transactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_64\System.Transactions\v4.0_4.0.0.0__b77a5c561934e089\System.Transactions.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_64\System.Transactions\v4.0_4.0.0.0__b77a5c561934e089\System.Transactions.dll
+    Version=4.0.30319.17929
+    Product=Microsoft® .NET Framework
+
+System.EnterpriseServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_64\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_64\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_64\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.Wrapper.dll
+    Version=4.0.30319.17929
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+SMDiagnostics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\SMDiagnostics\v4.0_4.0.0.0__b77a5c561934e089\SMDiagnostics.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\SMDiagnostics\v4.0_4.0.0.0__b77a5c561934e089\SMDiagnostics.dll
+    Version=4.0.30319.34230
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+System.ServiceModel.Internals, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Internals\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Internals.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Internals\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Internals.dll
+    Version=4.0.30319.34230
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.IdentityModel\v4.0_4.0.0.0__b77a5c561934e089\System.IdentityModel.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.IdentityModel\v4.0_4.0.0.0__b77a5c561934e089\System.IdentityModel.dll
+    Version=4.0.30319.34230
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Numerics\v4.0_4.0.0.0__b77a5c561934e089\System.Numerics.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Numerics\v4.0_4.0.0.0__b77a5c561934e089\System.Numerics.dll
+    Version=4.0.30319.17929
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+System.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Management\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Management.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Management\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Management.dll
+    Version=4.0.30319.17929
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+System.DirectoryServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+    Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.DirectoryServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.dll
+    Module=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.DirectoryServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.dll
+    Version=4.0.30319.18022
+    BuildType=retail
+    Product=Microsoft® .NET Framework
+
+
+
+----------------------------------------------------
+--------- Extra Data for Watson Report -------------
+----------------------------------------------------
+Error Reporting Enabled=True
+
+*** Extra Data ***
+Process ID = 2428 (0x097c)
+Managed Thread ID = 6
+Native Thread ID = 84 (0x0054)
+
